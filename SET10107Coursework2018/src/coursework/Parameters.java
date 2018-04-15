@@ -47,7 +47,7 @@ public class Parameters {
 	public static Select selectType = Select.TOURNAMENT;
 	public static int tSize = 20; //size of the tournament
 	
-	public static Crossover crossoverType = Crossover.NPOINT;
+	public static Crossover crossoverType = Crossover.UNIFORM;
 	public static double uniformProb = 0.5;
 	public static int numPoints = 3;
 	
@@ -60,8 +60,8 @@ public class Parameters {
 	// Parameters for mutation 
 	// Rate = probability of changing a gene
 	// Change = the maximum +/- adjustment to the gene value
-	public static double mutateRate = 0.01; // mutation rate for mutation operator
-	public static double mutateChange = 0.05; // delta change for mutation operator
+	public static double mutateRate = 0.03; // mutation rate for mutation operator
+	public static double mutateChange = 0.15; // delta change for mutation operator
 	
 	//Random number generator used throughout the application
 	public static long seed = System.currentTimeMillis();
