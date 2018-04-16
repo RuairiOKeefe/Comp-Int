@@ -327,40 +327,40 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork
 	}
 
 	private void tournamentReplace(ArrayList<Individual> individuals)
-	{	
+	{
 		ArrayList<Individual> newPop = new ArrayList<Individual>();
-		for(int n= 0; n<Parameters.popSize; n++)
+		for (int n = 0; n < Parameters.popSize; n++)
 		{
-		ArrayList<Individual> combinedPop = population;
-		
-		for (int i = 0; i < individuals.size(); i++)
-		{
-			combinedPop.add(individuals.get(i));
-		}
-		ArrayList<Integer> indexArray = new ArrayList<Integer>();
-		for (int i = 0; i < combinedPop.size(); i++)
-		{
-			indexArray.add(i);
-		}
+			ArrayList<Individual> combinedPop = population;
 
-		int winner = indexArray.get((int) (Math.random() * indexArray.size()));
+			for (int i = 0; i < individuals.size(); i++)
+			{
+				combinedPop.add(individuals.get(i));
+			}
+			ArrayList<Integer> indexArray = new ArrayList<Integer>();
+			for (int i = 0; i < combinedPop.size(); i++)
+			{
+				indexArray.add(i);
+			}
 
-		indexArray.remove((int) (Math.random() * indexArray.size()));
-
-		for (int i = 0; i < Parameters.rtSize; i++)
-		{
-
-			int randomId = indexArray.get((int) (Math.random() * indexArray.size()));
+			int winner = indexArray.get((int) (Math.random() * indexArray.size()));
 
 			indexArray.remove((int) (Math.random() * indexArray.size()));
 
-			winner = tournament(winner, randomId);
+			for (int i = 0; i < Parameters.rtSize; i++)
+			{
 
-			if (combinedPop.get(winner).compareTo(combinedPop.get(randomId)) != 1)
-				winner = randomId;
-		}
-		Individual newIndividual = combinedPop.get(winner);
-		newPop.add(newIndividual);
+				int randomId = indexArray.get((int) (Math.random() * indexArray.size()));
+
+				indexArray.remove((int) (Math.random() * indexArray.size()));
+
+				winner = tournament(winner, randomId);
+
+				if (combinedPop.get(winner).compareTo(combinedPop.get(randomId)) != 1)
+					winner = randomId;
+			}
+			Individual newIndividual = combinedPop.get(winner);
+			newPop.add(newIndividual);
 		}
 		population = newPop;
 	}
