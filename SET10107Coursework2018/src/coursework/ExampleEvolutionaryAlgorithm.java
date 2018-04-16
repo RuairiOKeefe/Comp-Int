@@ -147,16 +147,16 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork
 		{
 			indexArray.remove(firstParent);
 		}
-		int winner = indexArray.get((int) (Math.random() * indexArray.size()));
+		int winner = indexArray.get((int) (Parameters.random.nextDouble() * indexArray.size()));
 
-		indexArray.remove((int) (Math.random() * indexArray.size()));
+		indexArray.remove((int) (Parameters.random.nextDouble() * indexArray.size()));
 
 		for (int i = 0; i < Parameters.tSize; i++)
 		{
 
-			int randomId = indexArray.get((int) (Math.random() * indexArray.size()));
+			int randomId = indexArray.get((int) (Parameters.random.nextDouble() * indexArray.size()));
 
-			indexArray.remove((int) (Math.random() * indexArray.size()));
+			indexArray.remove((int) (Parameters.random.nextDouble() * indexArray.size()));
 
 			winner = tournament(winner, randomId);
 
@@ -191,7 +191,7 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork
 		double[] chromosome = new double[Parameters.getNumGenes()];
 		for (int i = 0; i < Parameters.getNumGenes(); i++)
 		{
-			if (Math.random() < Parameters.uniformProb)
+			if (Parameters.random.nextDouble() < Parameters.uniformProb)
 			{
 				chromosome[i] = parent1.chromosome[i];
 			}
@@ -211,7 +211,7 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork
 		Individual child = new Individual();
 		boolean parent = false;
 		double[] chromosome = new double[Parameters.getNumGenes()];
-		int flipPoint = (int) (Math.random() * Parameters.getNumGenes());
+		int flipPoint = (int) (Parameters.random.nextDouble() * Parameters.getNumGenes());
 		for (int i = 0; i < Parameters.getNumGenes(); i++)
 		{
 			if (i > flipPoint)
@@ -241,7 +241,7 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork
 
 		for (int i = 0; i < Parameters.numPoints; i++)
 		{
-			flipPoint.add((int) (Math.random() * Parameters.getNumGenes()));
+			flipPoint.add((int) (Parameters.random.nextDouble() * Parameters.getNumGenes()));
 		}
 
 		for (int i = 0; i < Parameters.getNumGenes(); i++)
@@ -320,8 +320,8 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork
 	{
 		for (int i = 0; i < Parameters.numReplacements; i++)
 		{
-			int randParent = (int) (Math.random() * population.size());
-			int randChild = (int) (Math.random() * individuals.size());
+			int randParent = (int) (Parameters.random.nextDouble() * population.size());
+			int randChild = (int) (Parameters.random.nextDouble() * individuals.size());
 			population.set(randParent, individuals.get(randChild));
 		}
 	}
@@ -343,16 +343,16 @@ public class ExampleEvolutionaryAlgorithm extends NeuralNetwork
 				indexArray.add(i);
 			}
 
-			int winner = indexArray.get((int) (Math.random() * indexArray.size()));
+			int winner = indexArray.get((int) (Parameters.random.nextDouble() * indexArray.size()));
 
-			indexArray.remove((int) (Math.random() * indexArray.size()));
+			indexArray.remove((int) (Parameters.random.nextDouble() * indexArray.size()));
 
 			for (int i = 0; i < Parameters.rtSize; i++)
 			{
 
-				int randomId = indexArray.get((int) (Math.random() * indexArray.size()));
+				int randomId = indexArray.get((int) (Parameters.random.nextDouble() * indexArray.size()));
 
-				indexArray.remove((int) (Math.random() * indexArray.size()));
+				indexArray.remove((int) (Parameters.random.nextDouble() * indexArray.size()));
 
 				winner = tournament(winner, randomId);
 
