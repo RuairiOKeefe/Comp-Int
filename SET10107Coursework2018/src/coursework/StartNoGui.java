@@ -34,12 +34,16 @@ public class StartNoGui
 		sb.append('\n');
 		sb.append("Test");
 		sb.append('\t');
-		sb.append("Fitness");
+		sb.append("Training Fitness");
+		sb.append('\t');
+		sb.append("Test Fitness");
 		sb.append('\n');
 
 		for (int i = 0; i < Parameters.numTests; i++)
 		{
-
+			sb.append(i);
+			sb.append('\t');
+			
 			// Set the data set for training
 			Parameters.setDataSet(DataSet.Training);
 
@@ -54,17 +58,18 @@ public class StartNoGui
 			 * project default directory)
 			 */
 			System.out.println(nn.best);
-
+			double trainFitness = Fitness.evaluate(nn);
+			System.out.println("Fitness on " + Parameters.getDataSet() + " " + trainFitness);
+			sb.append(trainFitness);
+			sb.append('\t');
 			/**
 			 * We now need to test the trained network on the unseen test Set
 			 */
 			Parameters.setDataSet(DataSet.Test);
-			double fitness = Fitness.evaluate(nn);
-			System.out.println("Fitness on " + Parameters.getDataSet() + " " + fitness);
+			double testFitness = Fitness.evaluate(nn);
+			System.out.println("Fitness on " + Parameters.getDataSet() + " " + testFitness);
 
-			sb.append(i);
-			sb.append('\t');
-			sb.append(fitness);
+			sb.append(testFitness);
 			sb.append('\n');
 		}
 		pw.write(sb.toString());

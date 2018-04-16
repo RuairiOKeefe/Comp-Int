@@ -49,7 +49,7 @@ public class Parameters {
 	
 	public static Crossover crossoverType = Crossover.UNIFORM;
 	public static double uniformProb = 0.5;
-	public static int numPoints = 5;
+	public static int numPoints = 3;
 	
 	public static Replace replaceType = Replace.TOURNAMENT;
 	public static int numReplacements = 40;
@@ -63,7 +63,7 @@ public class Parameters {
 	public static double mutateRate = 0.01; // mutation rate for mutation operator
 	public static double mutateChange = 0.05; // delta change for mutation operator
 	
-	public static int numTests = 20;
+	public static int numTests = 10;
 	//Random number generator used throughout the application
 	public static long seed = System.currentTimeMillis();
 	public static Random random = new Random(seed);
